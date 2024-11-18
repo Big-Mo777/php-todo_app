@@ -30,4 +30,27 @@
 // todo list app
 
 
-require "../src/Views/Layout.php";
+// require __DIR__ ."/../vendor/autoload.php";
+
+use App\Router;
+
+require dirname(path: __DIR__) . "/vendor/autoload.php";
+
+// Démmarage de la session
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+// Création d'une instace de routeur
+
+$router = new Router();
+
+$router->get(url:"/", function () {});
+$router->get(url:"/add", function () {});
+$router->post(url:"/add", function () {});
+$router->get(url:"/toggle", function () {});
+$router->get(url:"/delete", function () {});
+
+echo "<pre>";
+var_dump($router);
