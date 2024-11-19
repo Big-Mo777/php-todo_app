@@ -32,6 +32,7 @@
 
 // require __DIR__ ."/../vendor/autoload.php";
 
+use App\Controllers\TodoController;
 use App\Router;
 
 require dirname(path: __DIR__) . "/vendor/autoload.php";
@@ -46,11 +47,18 @@ if (!isset($_SESSION)) {
 
 $router = new Router();
 
-$router->get(url:"/", function () {});
-$router->get(url:"/add", function () {});
-$router->post(url:"/add", function () {});
-$router->get(url:"/toggle", function () {});
-$router->get(url:"/delete", function () {});
+// Création d'une instace du controlleurs 
+$todoController = new TodoController();
 
-echo "<pre>";
-var_dump($router);
+   // Définir les routres de l'application
+$router->get("/", [$todoController, 'index']);
+$router->get("/add", [$todoController, 'add']);
+$router->post("/add", [$todoController, 'add']);
+$router->get("/toggle", [$todoController, 'toggle']);
+$router->get("/delete", [$todoController, 'delete']);
+
+// Resoudre la route correspondante
+$router->resolve();
+// echo "<pre>";
+// var_dump($router);
+
