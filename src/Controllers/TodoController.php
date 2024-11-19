@@ -11,7 +11,7 @@ class TodoController
         if (!isset($_SESSION)) {
             session_start();
         }
-        $todos = $_SESSION["todos"];
+        $todos = $_SESSION["todos"] ?? [] ; // ?? opérateur de coalescence des
         // charger la vue "Views/ilndex.php"
 
         require __DIR__ . "/../Views/index.php";

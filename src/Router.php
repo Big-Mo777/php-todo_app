@@ -62,7 +62,7 @@ class Router {
             
         // Récupérer l'url depuis la requête
        $requestUrl = parse_url($_SERVER['REQUEST_URL'], PHP_URL_PATH) ;
-    //    Récupérer ka léthide HTTO utilisée pour la requête.
+    //    Récupérer la méthode HTTP utilisée pour la requête.
         $requestMethod = $_SERVER['REQUEST_METHOD'];
         // Parcourir tutes les routes enregistrées.
         foreach($this->routes as $route){
@@ -75,7 +75,7 @@ class Router {
         }
     // si aucune correspondance n'est trouvée, retourner une erreur 404.
     http_response_code(404);
-    echo "404 Pages non trouvé";
+    echo "404 Pages non trouvé !";
         }
     }
 
