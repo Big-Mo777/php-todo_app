@@ -1,6 +1,4 @@
-<?php
-ob_start();
-?>
+<?php ob_start(); ?>
 
 <h1>Ma Todo List</h1>
 
@@ -13,13 +11,10 @@ ob_start();
             </span>
             <a href="/toggle?id=<?= $todo['id']; ?>">✅</a>
             <a href="/delete?id=<?= $todo['id']; ?>">❌</a>
+            <a href="/change?id=<?= $todo['id']; ?>">modifier</a>
         </li>
     <?php endforeach; ?>
 </ul>
-<?php
-$content = ob_get_clean();
-?>
+<?php $content = ob_get_clean(); ?>
 
-<?php
-include 'Layout.php'
-?>
+<?php include 'Layout.php' ?>

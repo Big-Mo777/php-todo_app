@@ -83,5 +83,8 @@ class Router
         http_response_code(404);
         echo "404 Pages non trouvé !";
     }
+    public function change(){
+        
+    }
 
 }
